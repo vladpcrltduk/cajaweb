@@ -5,6 +5,7 @@ obj/
 *.suo
 .vs/
 appsettings.Production.json
+appsettings.Development.json
 
 # Frontend
 frontend/node_modules/

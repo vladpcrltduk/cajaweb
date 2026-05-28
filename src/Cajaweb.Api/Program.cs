@@ -1,20 +1,8 @@
-using Cajaweb.Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-builder.Services.AddDbContext<AppDbContext>(options =>
-{
-    var provider = builder.Configuration["DatabaseProvider"] ?? "postgresql";
-    if (provider == "sqlserver")
-        options.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
-    else
-        options.UseNpgsql(builder.Configuration.GetConnectionString("Default"));
-});
 
 builder.Services.AddCors(options =>
 {
