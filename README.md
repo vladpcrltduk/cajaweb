@@ -20,7 +20,7 @@ Tip:   $8.10
 Total: $53.10
 ```
 
-## Requirments
+## Requirements
 
 - Python 3.8 or higher
 
