@@ -1,3 +1,15 @@
-__pycache__/
-*.pyc
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+appsettings.Production.json
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# General
 .env
+.env.local
