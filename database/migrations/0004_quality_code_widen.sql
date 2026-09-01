@@ -6013,5 +6013,25 @@ UNION ALL
 
 ALTER VIEW public.powerbi_invoiced_contracts OWNER TO postgres;
 
+-- -------------------------------------------------------------------------
+-- ADDENDUM: historical_report_snapshots_02_daily_valuation
+-- This table was found after the main migration was applied. No FK constraint.
+-- Idempotent: only widens if still char(4).
+-- -------------------------------------------------------------------------
+
+DO $$ BEGIN
+    IF EXISTS (
+        SELECT 1 FROM information_schema.columns
+        WHERE table_name  = 'historical_report_snapshots_02_daily_valuation'
+          AND column_name = 'quality'
+          AND character_maximum_length = 4
+    ) THEN
+        ALTER TABLE historical_report_snapshots_02_daily_valuation ALTER COLUMN quality TYPE char(8);
+        RAISE NOTICE 'Widened quality in historical_report_snapshots_02_daily_valuation.';
+    ELSE
+        RAISE NOTICE 'quality in historical_report_snapshots_02_daily_valuation already char(8) or absent, skipping.';
+    END IF;
+END $$;
+
 --
 --
