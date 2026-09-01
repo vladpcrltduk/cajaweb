@@ -6033,5 +6033,45 @@ DO $$ BEGIN
     END IF;
 END $$;
 
+-- -------------------------------------------------------------------------
+-- ADDENDUM 2: four further tables found with quality char(4) and no FK
+--   quality_description, bean_reception, maintenance_history, processjobs_stock
+-- Idempotent: only widens columns still at char(4).
+-- -------------------------------------------------------------------------
+
+DO $$ BEGIN
+    IF EXISTS (
+        SELECT 1 FROM information_schema.columns
+        WHERE table_name = 'quality_description' AND column_name = 'quality' AND character_maximum_length = 4
+    ) THEN
+        ALTER TABLE quality_description ALTER COLUMN quality TYPE char(8);
+        RAISE NOTICE 'Widened quality in quality_description.';
+    END IF;
+
+    IF EXISTS (
+        SELECT 1 FROM information_schema.columns
+        WHERE table_name = 'bean_reception' AND column_name = 'quality' AND character_maximum_length = 4
+    ) THEN
+        ALTER TABLE bean_reception ALTER COLUMN quality TYPE char(8);
+        RAISE NOTICE 'Widened quality in bean_reception.';
+    END IF;
+
+    IF EXISTS (
+        SELECT 1 FROM information_schema.columns
+        WHERE table_name = 'maintenance_history' AND column_name = 'quality' AND character_maximum_length = 4
+    ) THEN
+        ALTER TABLE maintenance_history ALTER COLUMN quality TYPE char(8);
+        RAISE NOTICE 'Widened quality in maintenance_history.';
+    END IF;
+
+    IF EXISTS (
+        SELECT 1 FROM information_schema.columns
+        WHERE table_name = 'processjobs_stock' AND column_name = 'quality' AND character_maximum_length = 4
+    ) THEN
+        ALTER TABLE processjobs_stock ALTER COLUMN quality TYPE char(8);
+        RAISE NOTICE 'Widened quality in processjobs_stock.';
+    END IF;
+END $$;
+
 --
 --
