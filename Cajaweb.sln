@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AFFF8035-EDF6-48AB-B1C6-53C43F7EB908}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cajaweb.Api", "src\Cajaweb.Api\Cajaweb.Api.csproj", "{B28B7A6E-B342-4103-89A3-3862DCE6F368}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cajaweb.Core", "src\Cajaweb.Core\Cajaweb.Core.csproj", "{C96218AE-1070-4436-BF9A-64EAD15DB76A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cajaweb.Infrastructure", "src\Cajaweb.Infrastructure\Cajaweb.Infrastructure.csproj", "{19DD506C-C886-431E-AAB5-692F15B7D2F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B28B7A6E-B342-4103-89A3-3862DCE6F368}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B28B7A6E-B342-4103-89A3-3862DCE6F368}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B28B7A6E-B342-4103-89A3-3862DCE6F368}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B28B7A6E-B342-4103-89A3-3862DCE6F368}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C96218AE-1070-4436-BF9A-64EAD15DB76A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C96218AE-1070-4436-BF9A-64EAD15DB76A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C96218AE-1070-4436-BF9A-64EAD15DB76A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C96218AE-1070-4436-BF9A-64EAD15DB76A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19DD506C-C886-431E-AAB5-692F15B7D2F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19DD506C-C886-431E-AAB5-692F15B7D2F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19DD506C-C886-431E-AAB5-692F15B7D2F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19DD506C-C886-431E-AAB5-692F15B7D2F2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B28B7A6E-B342-4103-89A3-3862DCE6F368} = {AFFF8035-EDF6-48AB-B1C6-53C43F7EB908}
+		{C96218AE-1070-4436-BF9A-64EAD15DB76A} = {AFFF8035-EDF6-48AB-B1C6-53C43F7EB908}
+		{19DD506C-C886-431E-AAB5-692F15B7D2F2} = {AFFF8035-EDF6-48AB-B1C6-53C43F7EB908}
+	EndGlobalSection
+EndGlobal

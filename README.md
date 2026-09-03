@@ -1,29 +1,51 @@
-# tip-calc
+# Cajaweb
 
-A simple command-line tip calculator.
+Commodity trading web platform — trade blotter, invoicing, logistics, risk management and reporting.
 
-## Usage
+## Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | React 19 + TypeScript + Vite + AG Grid |
+| Backend | .NET 8 Web API (C#) |
+| ORM | Entity Framework Core 8 |
+| Database | PostgreSQL (MSSQL-ready via config switch) |
+
+## Project Structure
 
 ```
-python tip_calc.py <bill> <tip_percent>
+src/
+  Cajaweb.Api/            # Web API — controllers, startup
+  Cajaweb.Core/           # Domain entities and interfaces
+  Cajaweb.Infrastructure/ # EF Core DbContext and data access
+frontend/                 # React + TypeScript frontend
 ```
 
-**Example:**
+## Getting Started
+
+### Backend
+
+1. Update the connection string in `src/Cajaweb.Api/appsettings.Development.json`
+2. Run migrations: `dotnet ef database update --project src/Cajaweb.Infrastructure --startup-project src/Cajaweb.Api`
+3. Start the API: `dotnet run --project src/Cajaweb.Api`
+
+### Frontend
 
 ```
-python tip_calc.py 45.00 18
+cd frontend
+npm install
+npm run dev
 ```
 
-Output:
+The frontend runs on `http://localhost:5173` and expects the API on `http://localhost:5000`.
+
+## Switching to MSSQL
+
+In `appsettings.json`, set:
+
+```json
+"DatabaseProvider": "sqlserver",
+"ConnectionStrings": {
+  "Default": "Server=...;Database=cajaweb;..."
+}
 ```
-Tip:   $8.10
-Total: $53.10
-```
-
-## Requirments
-
-- Python 3.8 or higher
-
-## License
-
-MIT
